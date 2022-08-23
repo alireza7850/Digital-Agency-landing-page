@@ -1,0 +1,53 @@
+.container {
+  max-width: 1200px;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  .header-content {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+  }
+}
+
+@media (min-witdth: 576px) {
+  .header-content {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu,
+  .app-logo {
+    display: none;
+  }
+  .nav__btn {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer-section-2__list {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    display: flex;
+  }
+}
+
+@media (min-width: 1300px) {
+}
+
+@media (max-width: 1008px) {
+  .help-section {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,1223 @@
+:root {
+  --primary-color: #56bbd0;
+  --primary-color-hover: #3f90a0;
+  --hover-transition: all 0.25s ease;
+  --section-bgc: #f8fafc;
+  --title-color: #0f2137;
+  --text-color: #343d48;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* 10px */
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+body {
+  line-height: 1.6;
+  font-size: 1.6rem;
+  font-family: "DM Sans";
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
+/* ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+} */
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+}
+
+/* 
+Reset Style
+*/
+a {
+  text-decoration: none;
+  font-family: "DM Sans";
+  color: #000;
+}
+
+/*
+Helper Class
+*/
+
+/*
+App Style
+*/
+
+/*
+===============
+    header
+===============
+ */
+
+.header {
+  background-image: url(../img/illustration.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 85rem;
+  padding-top: 3rem;
+}
+
+/*
+----------
+   nav
+----------
+ */
+
+.nav {
+  display: flex;
+  position: relative;
+}
+
+.app-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  width: 34.2rem;
+  margin-left: 9.3rem;
+}
+
+.menu__link {
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.menu__icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.menu__hover {
+  visibility: hidden;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  padding: 10px;
+  color: #fff;
+  position: absolute;
+  top: 23px;
+  left: -30px;
+  width: 13rem;
+}
+.menu__hover-link {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.menu__link:hover .menu__hover {
+  visibility: visible;
+}
+.menu__hover-link:hover {
+  color: #ffffff;
+}
+
+/*
+---------------------
+   nav-menu(mobile)
+---------------------
+ */
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: -25rem;
+  bottom: 0;
+  max-width: 25rem;
+  background-color: #efefef;
+  padding: 2.5rem;
+  transition: all 250ms ease-in-out;
+  z-index: 1;
+}
+
+.nav-menu--open {
+  left: 0;
+}
+
+.nav-menu__title {
+  color: var(--primary-color);
+  font-family: "Arvo";
+  font-weight: 700;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--white);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.mobile-menu {
+  margin-bottom: 3rem;
+}
+
+.mobile-menu__item {
+  margin-bottom: 1rem;
+}
+
+.mobile-menu__link {
+  position: relative;
+  transition: all 250ms ease-in-out;
+}
+
+.mobile-menu__link::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0;
+  height: 0.3rem;
+  border-radius: 5rem;
+  background-color: var(--primary-color);
+  transition: all 250ms ease-in-out;
+}
+
+.mobile-menu__link:hover {
+  padding-left: 2.2rem;
+}
+
+.mobile-menu__link:hover::before {
+  width: 1.6rem;
+}
+/*
+---------------------
+   nav-btn(mobile)
+---------------------
+ */
+.nav__btn {
+  background-color: var(--primary-color);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  top: -20px;
+  visibility: hidden;
+  z-index: 2;
+}
+
+.nav__btn-line {
+  display: block;
+  width: 3rem;
+  height: 0.3rem;
+  border-radius: 5rem;
+  background-color: #fff;
+  position: relative;
+  transition: all 150ms ease-in-out;
+}
+
+.nav__btn-line::before,
+.nav__btn-line::after {
+  content: " ";
+  position: absolute;
+  width: 3rem;
+  height: 0.3rem;
+  border-radius: 5rem;
+  background-color: #fff;
+  transition: all 200ms ease-in-out;
+}
+
+.nav__btn-line::before {
+  top: -0.8rem;
+}
+
+.nav__btn-line::after {
+  top: 0.8rem;
+}
+
+.nav__btn--open .nav__btn-line {
+  background-color: transparent;
+}
+
+.nav__btn--open .nav__btn-line::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav__btn--open .nav__btn-line::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/*
+----------------------
+    header-content
+----------------------
+ */
+.header-content {
+  margin-top: 12rem;
+  max-width: 48rem;
+}
+
+.header-text {
+  width: 100%;
+}
+
+.header-text__title {
+  font-family: "Arvo";
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -1px;
+  text-align: left;
+}
+
+.header-text__caption {
+  font-family: "DM Sans";
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  text-align: left;
+  color: #02073e;
+  margin-top: 2rem;
+  margin-bottom: 3.4rem;
+}
+
+.domain-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.domain-input__input {
+  width: 70%;
+  height: 6rem;
+  padding: 1rem 2.4rem;
+  border: #e9edf5 solid 1px;
+  border-radius: 1rem;
+  outline: none;
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 400;
+  color: #02073e;
+}
+
+.domain-input__subbtn {
+  width: 30%;
+  height: 6rem;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--primary-color);
+  font-family: "DM Sans";
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: var(--hover-transition);
+}
+
+.domain-input__subbtn:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.payment-icon {
+  max-width: 45rem;
+  height: 4.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 3.5rem;
+}
+
+.payment-icon__client {
+  color: #566272;
+}
+
+.payment-icon__item {
+  color: #566272;
+  display: flex;
+  cursor: pointer;
+  transition: var(--hover-transition);
+}
+
+.payment-icon__svg-icon {
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #566272;
+  transition: var(--hover-transition);
+}
+
+.payment-icon__item--paypal:hover,
+.payment-icon__item--paypal:hover svg {
+  color: #3b7bbf;
+  fill: #3b7bbf;
+}
+
+.payment-icon__item--google:hover,
+.payment-icon__item--google:hover svg {
+  color: #db4437;
+  fill: #db4437;
+}
+
+.payment-icon__item--dropbox:hover,
+.payment-icon__item--dropbox:hover svg {
+  color: #3d9ae8;
+  fill: #3d9ae8;
+}
+
+/*
+===============
+      main
+===============
+ */
+
+/*
+---------------------------
+     solutions-section
+---------------------------
+ */
+
+.solutions-section-bg {
+  background-color: #f9fbfd;
+}
+
+.solutions-section {
+  padding: 5rem 0 12rem 0;
+}
+
+.solutions-section__caption {
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.solutions-section__title {
+  text-align: center;
+  font-family: "Arvo";
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 3.5rem;
+  margin-top: 1rem;
+}
+
+.solutions-section__card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.solutions-section-card-item {
+  width: 36rem;
+  min-height: 40rem;
+  border: solid 1px #edeef0;
+  padding: 6rem 5rem;
+  flex-grow: 1;
+  transition: var(--hover-transition);
+}
+.solutions-section-card-item:hover {
+  background-color: #fff;
+}
+
+.solutions-section-card-item__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 30px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: var(--title-color);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.solutions-section-card-item__caption {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 3rem;
+  letter-spacing: 0px;
+  text-align: left;
+  color: var(--text-color);
+  margin-bottom: 3rem;
+}
+
+.solutions-section-card-item__more {
+  color: #3183ff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.solutions-section-card-item__more i {
+  color: #4f96ff;
+  font-size: 1.2rem;
+  margin-left: 0.6rem;
+}
+
+/*
+-------------------------------
+    customer-support-section
+-------------------------------
+ */
+.customer-support-section-bg {
+  margin-top: 8rem;
+}
+
+.customer-support-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.customer-support-section__banner {
+  width: 72rem;
+}
+
+.customer-support-section__banner img {
+  width: 100%;
+  height: auto;
+}
+
+.customer-support-section__content {
+  width: 44rem;
+  margin-top: 4rem;
+}
+
+.customer-support {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.customer-support__title {
+  font-family: "Arvo";
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 5.5rem;
+  text-align: left;
+  color: var(--title-color);
+}
+
+.customer-support__caption {
+  color: #02073e;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0;
+  text-align: left;
+  margin: 2.5rem 0;
+}
+
+.customer-support-property {
+  display: grid;
+  grid-template-areas:
+    "one two"
+    "three four";
+}
+
+.customer-support-property:nth-child(1) {
+  grid-area: one;
+}
+
+.customer-support-property:nth-child(2) {
+  grid-area: two;
+}
+
+.customer-support-property:nth-child(3) {
+  grid-area: three;
+}
+
+.customer-support-property:nth-child(4) {
+  grid-area: four;
+}
+
+.customer-support-property__item {
+  color: #02073e;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-align: left;
+  margin: 1.2rem 0;
+}
+
+.customer-support-property__item i {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--primary-color);
+  font-size: 1.2rem;
+  color: white;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  margin-right: 1rem;
+}
+
+/*
+--------------------
+    deal-section
+--------------------
+ */
+.deal-section-bg {
+  background-color: var(--section-bgc);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.deal-section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.deal-section__caption {
+  font-family: "DM Sans";
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.deal-section__title {
+  font-family: Arvo;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: var(--title-color);
+  margin-bottom: 8.5rem;
+}
+
+.deal-section__price {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.deal-section-price-property {
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 17.6rem;
+  margin-right: -1rem;
+  flex-grow: 1;
+}
+
+.deal-section-price-property__item {
+  color: var(--text-color);
+  height: 6rem;
+  border-top: 1px solid #edf0f4;
+  display: flex;
+  align-items: center;
+}
+
+.deal-section-price-card {
+  width: 23rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #edf0f4;
+  border-radius: 1rem;
+  padding-top: 3rem;
+  flex-grow: 1;
+}
+
+.deal-section-price-card--recommended {
+  position: relative;
+  border-radius: 0 0 1rem 1rem;
+  background-color: #fff;
+}
+
+.deal-section-price-card__recommended {
+  background-color: #52acff;
+  position: absolute;
+  width: 100%;
+  top: -36px;
+  border-radius: 1rem 1rem 0 0;
+  height: 3.5rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.deal-section-price-card__plan-name {
+  font-family: "DM Sans";
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0px;
+  text-align: center;
+  color: var(--title-color);
+  margin-bottom: 2.5rem;
+  opacity: 50%;
+}
+
+.deal-section-price-card__plan-price {
+  font-family: DM Sans;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: -0.550000011920929px;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.deal-section-price-card__plan-price span {
+  font-family: DM Sans;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.550000011920929px;
+  text-align: center;
+}
+
+.deal-section-price-card__property-check {
+  height: 6rem;
+  border-top: 1px solid #edf0f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deal-section-price-card__choose-plan {
+  width: 17rem;
+  height: 5rem;
+  border: 2px solid rgba(255, 191, 89, 0.5);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 6rem auto 2.5rem auto;
+  color: #ffc059;
+  font-weight: 700;
+  font-size: 1.6rem;
+  transition: var(--hover-transition);
+}
+
+.deal-section-price-card__choose-plan:hover {
+  background-color: #ffc059;
+  color: #fff;
+}
+
+.deal-section-price-card__free-trial {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--title-color);
+  opacity: 50%;
+  margin-bottom: 6.6rem;
+}
+
+/*
+--------------------
+    help-section
+--------------------
+ */
+.help-section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+
+.help-section-content {
+  max-width: 47rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.help-section-content__title {
+  font-family: "Arvo";
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: left;
+  color: var(--title-color);
+}
+
+.help-section-content__caption {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 3.6rem;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #02073e;
+  margin-top: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.help-section-content-features {
+  display: flex;
+  max-width: 43rem;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+.help-section-content-features-content {
+  margin-left: 2rem;
+}
+
+.help-section-content-features-content__title {
+  color: var(--title-color);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.help-section-content-features-content__title i {
+  font-size: 14px;
+  opacity: 30%;
+  margin-left: 0.5rem;
+}
+
+.help-section-content-features-content__caption {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.6rem;
+  letter-spacing: 0px;
+  text-align: left;
+  color: var(--text-color);
+}
+
+.help-section-banner {
+  max-width: 50rem;
+  position: relative;
+}
+
+.help-section-banner__chat {
+  width: 27.7rem;
+  height: 14.3rem;
+  border-radius: 3rem 3rem 0.3rem 3rem;
+  background-color: #5080fb;
+  color: #fff;
+  font-family: "Arvo";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+  letter-spacing: -0.5px;
+  text-align: left;
+  padding: 25px 35px;
+  position: absolute;
+  top: 8.4rem;
+  right: 34.7rem;
+}
+
+.help-section-banner__img img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.help-section-banner__pattern {
+  position: absolute;
+  right: -81px;
+  bottom: 75px;
+  z-index: -1;
+}
+
+/*
+----------------------
+    company-section
+----------------------
+ */
+.company-section {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.company-section__title {
+  color: var(--title-color);
+  font-family: "Arvo";
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
+}
+
+.company-section__caption {
+  max-width: 62.3rem;
+  color: var(--title-color);
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.company-section__details {
+  color: #4f96ff;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.company-section__details i {
+  margin-left: 0.8rem;
+  font-size: 1rem;
+}
+
+.company-section__banner {
+  max-width: 1255px;
+}
+
+.company-section__banner img {
+  width: 100%;
+  height: auto;
+}
+
+/*
+-----------------------
+    features-section
+-----------------------
+ */
+.features-section-bg {
+  margin-top: 9rem;
+  margin-bottom: 15rem;
+}
+
+.features-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features-section__caption {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.features-section__title {
+  color: var(--title-color);
+  font-family: "Arvo";
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 5.5rem;
+  margin-top: 1rem;
+}
+
+.features-section__items {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.features-section-card1 {
+  max-width: 32rem;
+}
+
+.features-section-card1__pattern {
+  float: right;
+  margin-right: 24px;
+  margin-bottom: -45px;
+  margin-top: 45px;
+}
+
+.features-section-card1__banner img {
+  width: 100%;
+  height: auto;
+}
+
+.features-section-card1__title {
+  color: var(--title-color);
+  font-family: "Arvo";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.features-section-card1__caption {
+  color: var(--text-color);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 3rem;
+  margin-bottom: 2rem;
+}
+
+.features-section-card1__more {
+  color: #3183ff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.features-section-card1__more i {
+  color: #4f96ff;
+  margin-left: 0.8rem;
+}
+
+.features-section-card2 {
+  max-width: 44rem;
+}
+
+.features-section-card2__banner img {
+  width: 100%;
+  height: auto;
+}
+
+.features-section-card2__title {
+  color: var(--title-color);
+  font-family: "Arvo";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.features-section-card2__more {
+  color: #3183ff;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.features-section-card2__more i {
+  color: #4f96ff;
+  margin-left: 0.8rem;
+}
+
+.features-section-card3 {
+  max-width: 32rem;
+}
+
+.features-section-card3__banner img {
+  width: 100%;
+  height: auto;
+}
+
+.features-section-card3__title {
+  color: var(--title-color);
+  font-family: "Arvo";
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+/*
+----------------------
+    faq-section
+----------------------
+ */
+
+.faq-section__caption {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.faq-section__title {
+  color: var(--title-color);
+  font-family: "Arvo";
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.faq-section__accordion {
+  margin-top: 5rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 110rem;
+}
+
+.accordion {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 4rem 1rem;
+  border-bottom: 2px solid rgba(15, 34, 56, 0.3);
+  position: relative;
+}
+
+.accordion__question {
+  width: 42rem;
+  color: var(--title-color);
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.accordion__answer {
+  width: 48rem;
+  color: var(--text-color);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.accordion__answer--open {
+  white-space: normal;
+  text-overflow: clip;
+  overflow: visible;
+}
+
+.fa-plus {
+  color: #b1b8c0;
+  font-size: 1.4rem;
+  position: absolute;
+  right: 14px;
+  top: 51px;
+}
+
+.fa-plus--open {
+  display: none;
+}
+
+.fa-minus {
+  display: none;
+  color: #b1b8c0;
+  font-size: 1.4rem;
+  position: absolute;
+  right: 14px;
+  top: 51px;
+}
+
+.fa-minus--open {
+  display: inline;
+}
+
+.faq-section__btn {
+  max-width: 24.5rem;
+  height: 5rem;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--hover-transition);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 5px;
+  margin: 5.5rem auto 9.5rem auto;
+}
+
+.faq-section__btn:hover {
+  background-color: var(--primary-color-hover);
+}
+
+/*
+=================
+      footer
+=================
+ */
+footer {
+  background-color: #f9fafc;
+}
+
+.footer-section-1 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-card {
+  width: 18rem;
+  flex-grow: 1;
+}
+
+.footer-card__title {
+  margin-top: 4.5rem;
+  margin-bottom: 2.8rem;
+  color: var(--title-color);
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+
+.footer-card__list li {
+  margin-bottom: 1rem;
+}
+.footer-card__link {
+  color: #02073e;
+  font-size: 1.4rem;
+  font-weight: 400;
+  position: relative;
+}
+.footer-card__link::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  bottom: -2px;
+  left: 0;
+  transform: translateX(-100%);
+  transition: var(--hover-transition);
+  opacity: 0;
+}
+.footer-card__link:hover::after {
+  transform: translateX(0px);
+  opacity: 100;
+}
+
+.footer-section-2 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-top: 1px solid #d9e0e7;
+  margin-top: 6rem;
+}
+
+.footer-section-2__logo {
+  color: #02073e;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.footer-section-2__copyright {
+  color: rgba(15, 34, 56, 0.6);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.footer-section-2__list {
+  width: 38rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-section-2__list li {
+  display: inline;
+}
+.footer-section-2__list li a {
+  color: #02073e;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
